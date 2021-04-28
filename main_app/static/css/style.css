@@ -12,3 +12,14 @@ footer {
   padding-top: 0;
   text-align: right;
 }
+
+.photo-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.photo-container .card {
+  width: 31%;
+  text-align: center;
+}
