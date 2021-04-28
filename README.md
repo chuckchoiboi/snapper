@@ -24,14 +24,14 @@ Snapper is an application built for you to upload your photos to make it easily 
 
 ## Wireframes
 
-![home](media\home.JPG)
-![photo-create](media\photo-create.JPG)
-![photo-show](media\photo-show.JPG)
-![photo-show-userid](media\photo-show-userid.JPG)
+![home](https://user-images.githubusercontent.com/60675322/116333424-4205cf80-a788-11eb-9406-98773d49c49c.JPG)
+![photo-create](https://user-images.githubusercontent.com/60675322/116333421-403c0c00-a788-11eb-819b-724132d6070a.JPG)
+![photo-show](https://user-images.githubusercontent.com/60675322/116333416-3e724880-a788-11eb-8f60-f1f8b53a9d31.JPG)
+![photo-show-userid](https://user-images.githubusercontent.com/60675322/116333411-3ca88500-a788-11eb-8cb2-e4a7068ade84.JPG)
 
 ## ERD
 
-![erd](media\erd.JPG)
+![erd](https://user-images.githubusercontent.com/60675322/116333406-3adec180-a788-11eb-98ab-afdfbf6701b0.JPG)
 
 ## Technologies Used
 
