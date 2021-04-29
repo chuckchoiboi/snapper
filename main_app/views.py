@@ -8,6 +8,7 @@ from django.http import HttpResponse
 
 
 def home(request):
+    photos = Photo.objects.all()
     return render(request, 'home.html', {'photos': photos})
 
 # photos view
