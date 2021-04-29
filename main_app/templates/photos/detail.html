@@ -1,10 +1,13 @@
 {% extends 'base.html' %} {% block content %}
-
+<div class="card-action">
+  <a href="{% url 'photos_update' photo.id %}">Edit</a>
+  <a href="{% url 'photos_delete' photo.id %}">Delete</a>
+</div>
 <div class="card" style="background-image: url({{photo.url}}); background-position: center;">
   <div class="card-content">x</div>
 </div>
 <h1>{{ photo.title }}</h1>
-<input id="url-dummy" type="text" value="{{ photo.url }}" />
+<input id="photo-url" type="text" value="{{ photo.url }}" style="display: block" />
 <div class="photo-buttons">
   <button onclick="location.href='{{ photo.url }}'" type="button">Open Photo</button>
   <button onclick="copyUrl()" type="button">Copy URL</button>
@@ -12,7 +15,7 @@
 
 <script>
   function copyUrl() {
-    var url = document.querySelector('#url-dummy');
+    var url = document.querySelector('#photo-url');
     url.select();
     document.execCommand('copy');
   }
