@@ -9,9 +9,11 @@
     <div class="card-content">+</div>
   </div>
   {% for photo in photos %}
-  <div class="card" style="background-image: url({{photo.url}}); background-position: center;">
-    <div class="card-content"></div>
-  </div>
+  <a href="/photos/{{ photo.id }}/">
+    <div class="card" style="background-image: url({{photo.url}}); background-position: center;">
+      <div class="card-content"></div>
+    </div>
+  </a>
   {% endfor %}
 </div>
 {% endblock %}
