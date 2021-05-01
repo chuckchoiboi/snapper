@@ -45,14 +45,14 @@ def upload_photo(request):
             else:
                 privacy = False
             userId = User.objects.get(username=request.user).pk
-            print(userId)
             photo = Photo(
                 url=url,  title=request.POST['title'], privacy=privacy)
             photo.author_id = userId
             photo.save()
+            print(photo.pk)
         except:
             print('An error occurred creating photo')
-    return redirect('home')
+    return redirect('detail', photo_id=photo.pk)
 
 
 class PhotoUpdate(UpdateView):
