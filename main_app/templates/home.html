@@ -5,9 +5,11 @@
 <p>Share your moment!</p>
 
 <div class="photo-container">
-  <div class="card add-photo">
-    <div class="card-content">+</div>
-  </div>
+  <a href="{% url 'photos_create' %}">
+    <div class="card add-photo">
+      <div class="card-content">+</div>
+    </div>
+  </a>
   {% for photo in photos %}
   <a href="/photos/{{ photo.id }}/">
     <div class="card" style="background-image: url({{photo.url}}); background-position: center;">

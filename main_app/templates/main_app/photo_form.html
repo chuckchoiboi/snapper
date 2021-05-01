@@ -1,8 +1,5 @@
-{% extends 'base.html' %} {% block content %} {% if object %}
+{% extends 'base.html' %} {% block content %}
 <h1>Edit <span class="teal-text">{{object.title}}</span></h1>
-{% else %}
-<h1>Add Photo</h1>
-{% endif %}
 <form action="" method="post">
   {% csrf_token %}
   <table>
