@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import uuid
 import boto3
-from .models import Photo
+from .models import Photo, User
 from django.http import HttpResponse
 
 # AWS
@@ -44,8 +44,11 @@ def upload_photo(request):
                 privacy = True
             else:
                 privacy = False
+            userId = User.objects.get(username=request.user).pk
+            print(userId)
             photo = Photo(
-                url=url, title=request.POST['title'], privacy=privacy)
+                url=url,  title=request.POST['title'], privacy=privacy)
+            photo.author_id = userId
             photo.save()
         except:
             print('An error occurred creating photo')
