@@ -40,16 +40,16 @@ def upload_photo(request):
         try:
             s3.upload_fileobj(photo_file, BUCKET, key)
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
-            if request.POST['privacy'] == 'on':
+            if request.POST.get('privacy', None):
                 privacy = True
             else:
                 privacy = False
+
             userId = User.objects.get(username=request.user).pk
             photo = Photo(
                 url=url,  title=request.POST['title'], privacy=privacy)
             photo.author_id = userId
             photo.save()
-            print(photo.pk)
         except:
             print('An error occurred creating photo')
     return redirect('detail', photo_id=photo.pk)
