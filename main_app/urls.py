@@ -16,5 +16,5 @@ urlpatterns = [
     path('photos/upload_photo', views.upload_photo, name='upload_photo'),
 
     # account urls
-    # path('accounts/signup/', views.signup, name='signup'),
+    path('accounts/signup/', views.signup, name='signup'),
 ]
