@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 
 class Photo(models.Model):
-    # author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     url = models.CharField(max_length=200)
     title = models.CharField(max_length=150)
     privacy = models.BooleanField(default=False)

@@ -16,8 +16,12 @@
             <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Snapper</a></li>
           </ul>
           <ul class="right">
+            {% if user.is_authenticated %}
             <li><a href="{% url 'photos_create' %}">Add new photo</a></li>
-            <li><a href="#">Profile</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
           </ul>
         </div>
       </nav>
