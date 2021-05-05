@@ -46,10 +46,12 @@ def photos_create(request):
     return render(request, 'photos/create.html')
 
 # user created photos
-# @login_required
-# def photos_user(request):
-#     photos = Photo.objects.filter(user=request.user)
-#     return render(request, 'photos/user.html', {'photos': photos})
+
+
+@login_required
+def photos_user(request):
+    photos = Photo.objects.filter(author=request.user)
+    return render(request, 'photos/user.html', {'photos': photos})
 
 
 # upload photo

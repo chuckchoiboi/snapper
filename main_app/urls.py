@@ -11,6 +11,8 @@ urlpatterns = [
          views.PhotoUpdate.as_view(), name='photos_update'),
     path('photos/<int:pk>/delete/',
          views.PhotoDelete.as_view(), name='photos_delete'),
+    path('photos/myphotos/',
+         views.photos_user, name='photos_user'),
 
     # route for photo upload
     path('photos/upload_photo', views.upload_photo, name='upload_photo'),
