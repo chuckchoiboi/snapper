@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% if no_access %}
+<h1>You do not have access to this photo.</h1>
+{% else %}
 <div class="card-action">
   <a href="{% url 'photos_update' photo.id %}">Edit</a>
   <a href="{% url 'photos_delete' photo.id %}">Delete</a>
@@ -20,5 +22,4 @@
     document.execCommand('copy');
   }
 </script>
-
-{% endblock %}
+{% endif %} {% endblock %}

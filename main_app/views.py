@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 import uuid
 import boto3
 from .models import Photo, User
@@ -13,8 +15,8 @@ BUCKET = 'snapper-app'
 
 # Create your views here.
 
-# home view
 
+# home view
 
 def home(request):
     photos = Photo.objects.all()
@@ -24,15 +26,29 @@ def home(request):
 # photos view
 def photos_detail(request, photo_id):
     photo = Photo.objects.get(id=photo_id)
-    return render(request, 'photos/detail.html', {'photo': photo})
+    if photo.privacy == True:
+        if photo.author == request.user:
+            return render(request, 'photos/detail.html', {'photo': photo})
+        else:
+            print(request.user)
+            return render(request, 'photos/detail.html', {'no_access': True})
+    else:
+        return render(request, 'photos/detail.html', {'photo': photo})
 
 
+@login_required
 def photos_create(request):
     return render(request, 'photos/create.html')
 
+# user created photos
+# @login_required
+# def photos_user(request):
+#     photos = Photo.objects.filter(user=request.user)
+#     return render(request, 'photos/user.html', {'photos': photos})
+
+
 # upload photo
-
-
+@login_required
 def upload_photo(request):
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
@@ -57,12 +73,12 @@ def upload_photo(request):
     return redirect('detail', photo_id=photo.pk)
 
 
-class PhotoUpdate(UpdateView):
+class PhotoUpdate(LoginRequiredMixin, UpdateView):
     model = Photo
     fields = ['title', 'privacy']
 
 
-class PhotoDelete(DeleteView):
+class PhotoDelete(LoginRequiredMixin, DeleteView):
     model = Photo
     success_url = '/'
 
