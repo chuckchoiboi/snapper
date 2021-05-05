@@ -1,10 +1,11 @@
 {% extends 'base.html' %} {% block content %} {% if no_access %}
 <h1>You do not have access to this photo.</h1>
-{% else %}
+{% else %} {% if photo.author == user %}
 <div class="card-action">
   <a href="{% url 'photos_update' photo.id %}">Edit</a>
   <a href="{% url 'photos_delete' photo.id %}">Delete</a>
 </div>
+{% endif %}
 <div class="card" style="background-image: url({{photo.url}}); background-position: center;">
   <div class="card-content">x</div>
 </div>
