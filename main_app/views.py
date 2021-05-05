@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 import uuid
 import boto3
+from django.db.models import Q
 from .models import Photo, User
 from django.http import HttpResponse
 
@@ -19,7 +20,11 @@ BUCKET = 'snapper-app'
 # home view
 
 def home(request):
-    photos = Photo.objects.all()
+    if request.user.is_authenticated:
+        photos = Photo.objects.filter(
+            Q(privacy=False) | Q(author=request.user)).order_by('-created_at')
+    else:
+        photos = Photo.objects.filter(privacy=False).order_by('-created_at')
     return render(request, 'home.html', {'photos': photos})
 
 
