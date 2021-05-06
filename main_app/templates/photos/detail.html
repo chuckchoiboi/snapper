@@ -7,9 +7,15 @@
 </div>
 {% endif %}
 <div class="interaction">
-  <i class="far fa-thumbs-up"></i>
-  <i class="fas fa-bomb"></i>
-  <i class="fas fa-question"></i>
+  <button type="button" name="Like" id="like-button" onclick="handleInteraction(this.name)">
+    <i class="far fa-thumbs-up"></i>
+  </button>
+  <button type="button" name="Bomb" id="bomb-button" onclick="handleInteraction(this.name)">
+    <i class="fas fa-bomb"></i>
+  </button>
+  <button type="button" name="Question" id="question-button" onclick="handleInteraction(this.name)">
+    <i class="fas fa-question"></i>
+  </button>
 </div>
 <img src="{{photo.url}}" />
 <h1>{{ photo.title }}</h1>
@@ -24,6 +30,10 @@
     var url = document.querySelector('#photo-url');
     url.select();
     document.execCommand('copy');
+  }
+
+  function handleInteraction(interaction) {
+    console.log(interaction);
   }
 </script>
 {% endif %} {% endblock %}

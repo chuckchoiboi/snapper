@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 import uuid
 import boto3
 from django.db.models import Q
-from .models import Photo, User
+from .models import Photo, User, Interaction
 from django.http import HttpResponse
 
 # AWS
@@ -90,7 +90,22 @@ class PhotoDelete(LoginRequiredMixin, DeleteView):
     success_url = '/'
 
 
+@login_required
+def interact_photo(request, photo_id):
+    userId = User.objects.get(username=request.user).pk
+    photoId = Photo.objects.get(id=photo_id).pk
+    interaction_type = request.POST['interaction']
+    interaction = Interaction(
+        interaction_type=interaction_type
+    )
+    interaction.user_id = userId
+    interaction.photo_id = photoId
+    interaction.save()
+    return redirect('detail', photo_id=photoId)
+
 # Signup
+
+
 def signup(request):
     error_message = ''
     if request.method == 'POST':
