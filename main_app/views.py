@@ -94,12 +94,13 @@ class PhotoDelete(LoginRequiredMixin, DeleteView):
 def interact_photo(request, photo_id):
     userId = User.objects.get(username=request.user).pk
     photoId = Photo.objects.get(id=photo_id).pk
-    interaction_type = request.POST['interaction']
+    interaction_type = request.GET.get('interaction')
     interaction = Interaction(
-        interaction_type=interaction_type
+        interaction=interaction_type
     )
     interaction.user_id = userId
     interaction.photo_id = photoId
+    print(interaction)
     interaction.save()
     return redirect('detail', photo_id=photoId)
 

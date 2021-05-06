@@ -14,7 +14,7 @@ INTERACTION_CHOICES = [
 
 class Interaction(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    interaction_type = models.CharField(
+    interaction = models.CharField(
         max_length=1, choices=INTERACTION_CHOICES, default=INTERACTION_CHOICES[0][0]
     )
 
