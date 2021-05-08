@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %} {% if no_access %}
 <h1>You do not have access to this photo.</h1>
 {% else %}
-<div class="card" style="width: 30rem">
+<div class="card mx-auto my-5" style="width: 30rem">
   {% if photo.author == user %}
   <div class="card-action mx-3">
     <a href="{% url 'photos_update' photo.id %}">Edit</a>
