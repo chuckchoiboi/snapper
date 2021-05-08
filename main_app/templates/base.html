@@ -18,11 +18,10 @@
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
       crossorigin="anonymous"
     />
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-    <header class="bg-light">
+    <header class="bg-warning">
       <nav class="navbar navbar-expand navbar-light justify-content-between container">
         <a href="/" class="navbar-brand">&nbsp;&nbsp;Snapper</a>
         <ul class="navbar-nav">
@@ -40,7 +39,7 @@
       </nav>
     </header>
     <main class="container">{% block content %} {% endblock %}</main>
-    <footer class="bg-light">
+    <footer class="bg-warning">
       <div class="container">All Rights Reserved, &copy; 2021 CC Tech&nbsp;</div>
     </footer>
     <script

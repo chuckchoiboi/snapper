@@ -8,7 +8,12 @@ main {
   flex: 1 0 auto;
 }
 
+header {
+  font-weight: bold;
+}
+
 footer {
   padding-top: 0;
   text-align: right;
+  font-weight: bold;
 }
