@@ -1,21 +1,23 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Welcome to Snapper</h1>
-<hr />
-<p>Share your moment!</p>
-
-<div class="photo-container">
-  <a href="{% url 'photos_create' %}">
-    <div class="card add-photo">
-      <div class="card-content">+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-4 my-3">
+      <a href="{% url 'photos_create' %}">
+        <div class="card ratio ratio-1x1">
+          <div class="photo-content">+</div>
+        </div>
+      </a>
     </div>
-  </a>
-  {% for photo in photos %}
-  <a href="/photos/{{ photo.id }}/">
-    <div class="card" style="background-image: url({{photo.url}}); background-position: center;">
-      <div class="card-content"></div>
+    {% for photo in photos %}
+    <div class="col-4 my-3">
+      <a href="/photos/{{ photo.id }}/">
+        <div class="card ratio ratio-1x1">
+          <img class="card-img-top" src="{{photo.url}}" alt="{{ photo.title }}" />
+        </div>
+      </a>
     </div>
-  </a>
-  {% endfor %}
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

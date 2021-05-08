@@ -5,7 +5,7 @@
   <a href="{% url 'photos_update' photo.id %}">Edit</a>
   <a href="{% url 'photos_delete' photo.id %}">Delete</a>
 </div>
-{% endif %}
+{% endif %} {% comment %}
 <div class="interaction">
   <button type="button" name="Like" id="like-button">
     <a href="{% url 'interact_photo' photo.id %}?interaction=L"><i class="far fa-thumbs-up"></i></a>
@@ -17,6 +17,7 @@
     <a href="{% url 'interact_photo' photo.id %}?interaction=Q"><i class="fas fa-question"></i></a>
   </button>
 </div>
+{% endcomment %}
 <img src="{{photo.url}}" />
 <h1>{{ photo.title }}</h1>
 <input id="photo-url" type="text" value="{{ photo.url }}" style="display: block" />
