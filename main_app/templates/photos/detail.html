@@ -2,20 +2,23 @@
 <h1>You do not have access to this photo.</h1>
 {% else %}
 <div class="card mx-auto my-5" style="width: 30rem">
-  {% if photo.author == user %}
-  <div class="card-action mx-3">
-    <a href="{% url 'photos_update' photo.id %}">Edit</a>
-    <a href="{% url 'photos_delete' photo.id %}">Delete</a>
-  </div>
-  {% endif %}
-
   <img src="{{photo.url}}" class="card-img-top" alt="{{ photo.title }}" />
   <div class="card-body">
-    <h5 class="card-title">{{ photo.title }}</h5>
+    <div class="d-flex justify-content-between">
+      <h5 class="card-title">{{ photo.title }}</h5>
+      {% if photo.author == user %}
+      <div class="card-action mx-3">
+        <a class="btn btn-warning" href="{% url 'photos_update' photo.id %}">Edit</a>
+        <a class="btn btn-danger" href="{% url 'photos_delete' photo.id %}">Delete</a>
+      </div>
+      {% endif %}
+    </div>
     <input id="photo-url" type="text" value="{{ photo.url }}" style="display: block" />
-    <div class="photo-buttons">
-      <button onclick="location.href='{{ photo.url }}'" type="button">Open Photo</button>
-      <button onclick="copyUrl()" type="button">Copy URL</button>
+    <div class="photo-buttons my-2">
+      <button class="btn btn-secondary" onclick="location.href='{{ photo.url }}'" type="button">
+        Open Photo
+      </button>
+      <button class="btn btn-secondary" onclick="copyUrl()" type="button">Copy URL</button>
     </div>
   </div>
 </div>
