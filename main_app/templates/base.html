@@ -22,28 +22,26 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-    <header class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <ul>
-            <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Snapper</a></li>
-          </ul>
-          <ul class="right">
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'photos_create' %}">Add Photo</a></li>
-            <li><a href="/photos/myphotos/">My Photos</a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
-            {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
-            {% endif %}
-          </ul>
-        </div>
+    <header class="bg-light">
+      <nav class="navbar navbar-expand navbar-light justify-content-between container">
+        <a href="/" class="navbar-brand">&nbsp;&nbsp;Snapper</a>
+        <ul class="navbar-nav">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'photos_create' %}">Add Photo</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/photos/myphotos/">My Photos</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
+          {% else %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">Sign Up</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Log In</a></li>
+          {% endif %}
+        </ul>
       </nav>
     </header>
     <main class="container">{% block content %} {% endblock %}</main>
-    <footer class="page-footer">
-      <div class="right">All Rights Reserved, &copy; 2021 CC Tech&nbsp;</div>
+    <footer class="bg-light">
+      <div class="container">All Rights Reserved, &copy; 2021 CC Tech&nbsp;</div>
     </footer>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
