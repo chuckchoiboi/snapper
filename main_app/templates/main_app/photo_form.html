@@ -1,4 +1,18 @@
 {% extends 'base.html' %} {% block content %}
+<div class="card mx-auto p-4 my-5" style="width: 50rem">
+  <h1>Edit <span class="teal-text">{{object.title}}</span></h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <table>
+      {{ form.as_p }}
+    </table>
+    <div class="my-4">
+      <button type="submit" class="btn btn-primary">Submit!</button>
+    </div>
+  </form>
+</div>
+
+{% comment %}
 <h1>Edit <span class="teal-text">{{object.title}}</span></h1>
 <form action="" method="post">
   {% csrf_token %}
@@ -7,4 +21,4 @@
   </table>
   <input type="submit" value="Submit!" class="btn" />
 </form>
-{% endblock %}
+{% endcomment %} {% endblock %}

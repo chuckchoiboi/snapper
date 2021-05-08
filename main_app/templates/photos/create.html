@@ -1,19 +1,24 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Add Photo</h1>
-<form action="{% url 'upload_photo' %}" enctype="multipart/form-data" method="POST">
-  {% csrf_token %}
-  <div>
-    <label for="file">Choose image to upload</label>
-    <input type="file" id="file" name="photo-file" accept="image/*" required />
-  </div>
-  <div>
-    <label for="id_title">Title:</label>
-    <input type="text" name="title" maxlength="150" required="" id="id_title" />
-  </div>
-  <div>
-    <input type="checkbox" id="privacy" name="privacy" />
-    <label for="privacy">Check to make this photo private</label>
-  </div>
-  <input type="submit" value="Submit!" class="btn" />
-</form>
+
+<div class="card mx-auto p-4 my-5" style="width: 50rem">
+  <h1>Add Photo</h1>
+  <form action="{% url 'upload_photo' %}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <div class="d-flex flex-column my-4">
+      <h4 for="file">Choose image to upload</h4>
+      <input type="file" id="file" name="photo-file" accept="image/*" required />
+    </div>
+    <div class="d-flex flex-column my-4">
+      <h4 for="id_title">Title</h4>
+      <input type="text" name="title" maxlength="150" required="" id="id_title" />
+    </div>
+    <div>
+      <input type="checkbox" id="privacy" name="privacy" />
+      <label for="privacy">Check to make this photo private</label>
+    </div>
+    <div class="my-4">
+      <button type="submit" class="btn btn-primary">Submit!</button>
+    </div>
+  </form>
+</div>
 {% endblock %}
