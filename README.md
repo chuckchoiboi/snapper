@@ -2,7 +2,7 @@
 
 ---
 
-- App Link
+- [App Link](https://snapper-project.herokuapp.com/)
   <br>
   <br>
 
@@ -17,7 +17,7 @@ Snapper is an application built for you to upload your photos to make it easily 
 - AAU, I can upload a photo to the database
 - AAU, I can name the photo, and upload the photo from the local machine
 - AAU, I have an option to make the photo private, which can only be accessed by the original author, otherwise the photo defaults to public
-  AAU, I can access any public photos and my own to open the photo link, or copy the URL of the photo
+- AAU, I can access any public photos and my own to open the photo link, or copy the URL of the photo
 - AAU, I can see all photos I created in a carousel
 - AAU, I can delete or edit the title and privacy of the photo
 
