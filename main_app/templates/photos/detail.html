@@ -15,9 +15,7 @@
     </div>
     <input id="photo-url" type="text" value="{{ photo.url }}" style="display: block" />
     <div class="photo-buttons my-2">
-      <button class="btn btn-secondary" onclick="location.href='{{ photo.url }}'" type="button">
-        Open Photo
-      </button>
+      <a href="{{ photo.url }}" class="btn btn-secondary" type="button"> Open Photo </a>
       <button class="btn btn-secondary" onclick="copyUrl()" type="button">Copy URL</button>
     </div>
   </div>
