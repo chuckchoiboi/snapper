@@ -62,6 +62,7 @@ def upload_photo(request):
         s3 = boto3.client('s3')
         key = uuid.uuid4().hex[:6] + \
             photo_file.name[photo_file.name.rfind('.'):]
+        print(photo_file)
         try:
             s3.upload_fileobj(photo_file, BUCKET, key)
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
@@ -69,12 +70,12 @@ def upload_photo(request):
                 privacy = True
             else:
                 privacy = False
-
             userId = User.objects.get(username=request.user).pk
             photo = Photo(
                 url=url,  title=request.POST['title'], privacy=privacy)
             photo.author_id = userId
             photo.save()
+            print(photo)
         except:
             print('An error occurred creating photo')
     return redirect('detail', photo_id=photo.pk)
