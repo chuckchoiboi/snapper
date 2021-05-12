@@ -64,7 +64,8 @@ def upload_photo(request):
             photo_file.name[photo_file.name.rfind('.'):]
         print(photo_file)
         try:
-            s3.upload_fileobj(photo_file, BUCKET, key)
+            s3.upload_fileobj(photo_file, BUCKET, key, ExtraArgs={
+                              'ContentType': 'image/jpeg'})
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
             if request.POST.get('privacy', None):
                 privacy = True
