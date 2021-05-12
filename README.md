@@ -17,10 +17,9 @@ Snapper is an application built for you to upload your photos to make it easily 
 - AAU, I can upload a photo to the database
 - AAU, I can name the photo, and upload the photo from the local machine
 - AAU, I have an option to make the photo private, which can only be accessed by the original author, otherwise the photo defaults to public
-  AAU, I can access any public photos and my own to open the photo link, copy the URL of the photo, or comment on the photo
-- AAU, I can interact with the photo
+  AAU, I can access any public photos and my own to open the photo link, or copy the URL of the photo
 - AAU, I can see all photos I created in a carousel
-- AAU, I can delete or edit the title of the photo
+- AAU, I can delete or edit the title and privacy of the photo
 
 ## Wireframes
 
@@ -31,7 +30,7 @@ Snapper is an application built for you to upload your photos to make it easily 
 
 ## ERD
 
-![erd](https://user-images.githubusercontent.com/60675322/116333406-3adec180-a788-11eb-98ab-afdfbf6701b0.JPG)
+![erd](https://media.git.generalassemb.ly/user/19097/files/a6a04e80-b29f-11eb-8292-2443822cded5)
 
 ## Technologies Used
 
