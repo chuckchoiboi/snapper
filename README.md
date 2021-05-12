@@ -36,5 +36,7 @@ Snapper is an application built for you to upload your photos to make it easily 
 
 - Python
 - Django
-- AWS S3
+- Amazon S3
+- Bootstrap
 - PostgreSQL
+- Heroku
