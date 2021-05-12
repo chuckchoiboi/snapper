@@ -1,0 +1,1 @@
+web: gunicorn snapper_project.wsgi
